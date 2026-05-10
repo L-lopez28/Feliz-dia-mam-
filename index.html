@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Feliz Día Mamá</title>
+
+<style>
+    body{
+        margin:0;
+        overflow:hidden;
+        background: linear-gradient(to bottom, #ffb6c1, #ff69b4);
+        font-family: Arial, sans-serif;
+    }
+
+    .mensaje{
+        position:absolute;
+        top:20px;
+        width:100%;
+        text-align:center;
+        font-size:50px;
+        color:white;
+        font-weight:bold;
+        text-shadow: 3px 3px 8px red;
+        animation: brillo 2s infinite alternate;
+        z-index:10;
+    }
+
+    @keyframes brillo{
+        from{transform:scale(1);}
+        to{transform:scale(1.08);}
+    }
+
+    .corazon{
+        position:absolute;
+        width:400px;
+        height:400px;
+        background:red;
+        top:50%;
+        left:50%;
+        transform:translate(-50%,-50%) rotate(-45deg);
+        animation: latido 1.5s infinite;
+    }
+
+    .corazon::before,
+    .corazon::after{
+        content:'';
+        position:absolute;
+        width:400px;
+        height:400px;
+        background:red;
+        border-radius:50%;
+    }
+
+    .corazon::before{
+        top:-200px;
+        left:0;
+    }
+
+    .corazon::after{
+        left:200px;
+        top:0;
+    }
+
+    @keyframes latido{
+        0%{transform:translate(-50%,-50%) rotate(-45deg) scale(1);}
+        50%{transform:translate(-50%,-50%) rotate(-45deg) scale(1.05);}
+        100%{transform:translate(-50%,-50%) rotate(-45deg) scale(1);}
+    }
+
+    .contenido{
+        position:absolute;
+        top:50%;
+        left:50%;
+        transform:translate(-50%,-50%);
+        z-index:5;
+        text-align:center;
+        color:white;
+    }
+
+    .emoji{
+        font-size:120px;
+        animation: mover 3s infinite alternate;
+    }
+
+    @keyframes mover{
+        from{transform:translateY(0px);}
+        to{transform:translateY(-15px);}
+    }
+
+    .texto{
+        font-size:35px;
+        margin-top:10px;
+        font-weight:bold;
+        text-shadow:2px 2px 5px black;
+    }
+
+    .corazoncito{
+        position:absolute;
+        color:white;
+        animation: subir 6s linear infinite;
+        opacity:0.8;
+    }
+
+    @keyframes subir{
+        from{
+            transform:translateY(100vh) scale(0.5);
+            opacity:1;
+        }
+        to{
+            transform:translateY(-10vh) scale(1.5);
+            opacity:0;
+        }
+    }
+</style>
+</head>
+
+<body>
+
+<div class="mensaje">
+    🌸 Feliz Día Mamá 🌸
+</div>
+
+<div class="corazon"></div>
+
+<div class="contenido">
+    <div class="emoji">👧🌹👩</div>
+    <div class="texto">
+        Con mucho amor de tus hijos ❤️
+    </div>
+</div>
+
+<audio autoplay loop>
+    <source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_c8c8e1b6fd.mp3?filename=beautiful-piano-ambient-110624.mp3" type="audio/mp3">
+</audio>
+
+<script>
+
+for(let i=0; i<40; i++){
+
+    let corazon = document.createElement("div");
+
+    corazon.classList.add("corazoncito");
+
+    corazon.innerHTML = "❤";
+
+    corazon.style.left = Math.random()*100 + "vw";
+
+    corazon.style.fontSize = (Math.random()*30 + 20) + "px";
+
+    corazon.style.animationDuration = (Math.random()*3 + 3) + "s";
+
+    document.body.appendChild(corazon);
+}
+
+</script>
+
+</body>
+</html>
